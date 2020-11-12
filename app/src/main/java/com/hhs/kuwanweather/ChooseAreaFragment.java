@@ -118,7 +118,7 @@ public class ChooseAreaFragment extends Fragment {
     private void queryCities() {
         textViewTitle.setText(selectedProvince.getProvinceName());
         btnBack.setVisibility(View.VISIBLE);
-        cityList = DataSupport.where("provinceId = ?", String.valueOf(selectedProvince.getId())).find(City.class);
+        cityList = DataSupport.where("provinceid = ?", String.valueOf(selectedProvince.getId())).find(City.class);
         if (cityList.size() > 0) {
             datalist.clear();
             for (City city : cityList) {
@@ -148,7 +148,7 @@ public class ChooseAreaFragment extends Fragment {
         } else {
             int provinceCode = selectedProvince.getProvinceCode();
             int cityCode = selectedCity.getCityCode();
-            queryFormServer(address + provinceCode + "/" + cityCode, "province");
+            queryFormServer(address + provinceCode + "/" + cityCode, "county");
         }
     }
 
@@ -177,13 +177,19 @@ public class ChooseAreaFragment extends Fragment {
                     result = Utility.handleCountyResponse(responseText, selectedCity.getId());
                 }
                 if (result) {
-                    if (type.equals("province")) {
-                        queryProvinces();
-                    } else if (type.equals("city")) {
-                        queryCities();
-                    } else {
-                        queryCounties();
-                    }
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (type.equals("province")) {
+                                queryProvinces();
+                            } else if (type.equals("city")) {
+                                queryCities();
+                            } else {
+                                queryCounties();
+                            }
+                        }
+                    });
+
                 }
             }
         });
