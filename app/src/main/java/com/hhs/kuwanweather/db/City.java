@@ -1,8 +1,8 @@
 package com.hhs.kuwanweather.db;
 
-import org.litepal.exceptions.DataSupportException;
+import org.litepal.crud.DataSupport;
 
-public class City extends DataSupportException {
+public class City extends DataSupport {
 
     private int id;
     private String cityName;
@@ -41,10 +41,6 @@ public class City extends DataSupportException {
         this.provinceId = provinceId;
     }
 
-
-    public City(String errorMessage) {
-        super(errorMessage);
-    }
 
     @Override
     public String toString() {

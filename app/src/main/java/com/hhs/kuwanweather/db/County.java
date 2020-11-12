@@ -1,10 +1,11 @@
 package com.hhs.kuwanweather.db;
 
+import org.litepal.crud.DataSupport;
 import org.litepal.exceptions.DataSupportException;
 
 import java.nio.channels.Pipe;
 
-public class County extends DataSupportException {
+public class County extends DataSupport {
 
     private int id;
     private String countyName;
@@ -41,11 +42,6 @@ public class County extends DataSupportException {
 
     public void setCityId(int cityId) {
         this.cityId = cityId;
-    }
-
-
-    public County(String errorMessage) {
-        super(errorMessage);
     }
 
     @Override
