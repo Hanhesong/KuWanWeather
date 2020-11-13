@@ -1,9 +1,7 @@
 package com.hhs.kuwanweather.util;
 
-import android.app.DownloadManager;
 import android.text.TextUtils;
 
-import com.google.gson.JsonObject;
 import com.hhs.kuwanweather.db.City;
 import com.hhs.kuwanweather.db.County;
 import com.hhs.kuwanweather.db.Province;
@@ -12,7 +10,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import javax.crypto.interfaces.PBEKey;
 
 public class Utility {
     public static boolean handleProvinceResponse(String response) {
