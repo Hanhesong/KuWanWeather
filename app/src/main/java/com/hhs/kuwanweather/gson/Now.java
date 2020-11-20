@@ -3,32 +3,32 @@ package com.hhs.kuwanweather.gson;
 import com.google.gson.annotations.SerializedName;
 
 public class Now {
-    private String cloud;
+    public String cloud;
     @SerializedName("cond_code")
-    private String condCode;
-    @SerializedName("cond_text")
-    private String condText;
-    private String fy;
-    private String hum;
-    private String pcpn;
-    private String pres;
-    @SerializedName("tem")
-    private String temperature;
-    private String vis;
+    public String condCode;
+    @SerializedName("cond_txt")
+    public String condText;
+    public String fy;
+    public String hum;
+    public String pcpn;
+    public String pres;
+    @SerializedName("tmp")
+    public String temperature;
+    public String vis;
     @SerializedName("wind_deg")
-    private String windDeg;
+    public String windDeg;
     @SerializedName("wind_dir")
-    private String windDir;
+    public String windDir;
     @SerializedName("wind_sc")
-    private String windSc;
+    public String windSc;
     @SerializedName("wind_spd")
-    private String windSpd;
-    private Cond cond;
+    public String windSpd;
+    public Cond cond;
 
     public class Cond {
-        private String code;
+        public String code;
         @SerializedName("txt")
-        private String info;
+        public String info;
 
     }
 

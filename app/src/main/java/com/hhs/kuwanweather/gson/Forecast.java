@@ -3,19 +3,19 @@ package com.hhs.kuwanweather.gson;
 import com.google.gson.annotations.SerializedName;
 
 public class Forecast {
-    private String date;
+    public String date;
     @SerializedName("cond")
-    private More more;
+    public More more;
     @SerializedName("tmp")
-    private Temperature temperature;
+    public Temperature temperature;
 
     public class More {
         @SerializedName("txt_d")
-        private String info;
+        public String info;
     }
 
-    private class Temperature {
-        private String max;
-        private String min;
+    public class Temperature {
+        public String max;
+        public String min;
     }
 }

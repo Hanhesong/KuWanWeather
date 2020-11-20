@@ -6,19 +6,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class Basic {
     @SerializedName("cid")
-    private String weatherId;
-    private String location;
+    public String weatherId;
+    public String location;
     @SerializedName("parent_city")
-    private String cityName;
+    public String cityName;
     @SerializedName("admin_area")
-    private String provinceName;
+    public String provinceName;
     @SerializedName("cnty")
-    private String countryName;
-    private String lat;
-    private String lon;
-    private String tz;
+    public String countryName;
+    public String lat;
+    public String lon;
+    public String tz;
     @SerializedName("city")
-    private String countyName;
-    private String id;
-    private Update update;
+    public String countyName;
+    public String id;
+    public Update update;
 }

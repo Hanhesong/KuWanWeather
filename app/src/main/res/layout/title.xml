@@ -18,6 +18,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
         android:textColor="#fff"
+        android:layout_centerVertical="true"
         android:textSize="16sp" />
 
 </RelativeLayout>

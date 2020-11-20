@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class Weather {
-    private String status;
-    private Basic basic;
-    private Update update;
-    private Now now;
+    public String status;
+    public Basic basic;
+    public Update update;
+    public Now now;
     @SerializedName("daily_forecast")
-    private List<Forecast> forecastList;
-    private AQI aqi;
-    private Suggestion suggestion;
-    private String msg;
+    public List<Forecast> forecastList;
+    public AQI aqi;
+    public Suggestion suggestion;
+    public String msg;
 }

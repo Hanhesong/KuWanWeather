@@ -1,11 +1,11 @@
 package com.hhs.kuwanweather.gson;
 
 public class AQI {
-    private AQICity city;
+    public AQICity city;
 
-    private class AQICity {
-        private String aqi;
-        private String pm25;
-        private String qlty;
+    public class AQICity {
+        public String aqi;
+        public String pm25;
+        public String qlty;
     }
 }
