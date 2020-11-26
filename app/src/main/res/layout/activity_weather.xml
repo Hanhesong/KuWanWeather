@@ -6,40 +6,44 @@
     android:background="@color/colorPrimary"
     tools:context=".WeatherActivity">
 
-    <ImageView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_Refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/bing_pic_img"
-        android:scaleType="centerCrop"
-        />
+        android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/weather_layout"
-        android:overScrollMode="never"
-        android:scrollbars="none">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/bing_pic_img"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:fitsSystemWindows="true"
-            >
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
 
-            <include layout="@layout/title" />
+        <ScrollView
+            android:id="@+id/weather_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none">
 
-            <include layout="@layout/now" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical">
 
-            <include layout="@layout/forecast" />
+                <include layout="@layout/title" />
 
-            <include layout="@layout/aqi" />
+                <include layout="@layout/now" />
 
-            <include layout="@layout/suggestion" />
-        </LinearLayout>
+                <include layout="@layout/forecast" />
+
+                <include layout="@layout/aqi" />
+
+                <include layout="@layout/suggestion" />
+            </LinearLayout>
 
 
-    </ScrollView>
-
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </FrameLayout>

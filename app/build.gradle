@@ -40,5 +40,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
 }
