@@ -1,6 +1,8 @@
 package com.hhs.kuwanweather;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.SharedPreferences;
@@ -11,6 +13,7 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -61,6 +64,10 @@ public class WeatherActivity extends AppCompatActivity {
     ImageView bingPicImg;
     @BindView(R.id.swipe_Refresh)
     SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.nav_home)
+    Button navButton;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +102,15 @@ public class WeatherActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                Toast.makeText(WeatherActivity.this, weatherId, Toast.LENGTH_SHORT).show();
                 requestWeather(weatherId);
+            }
+        });
+
+        navButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(GravityCompat.START);
             }
         });
 
@@ -126,7 +141,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     private void showWeatherInfo(Weather weather) {
-        String cityName = weather.basic.cityName;
+        String cityName = weather.basic.location;
         String updateTime = weather.basic.update.loc;
         String degree = weather.now.temperature + "℃";
         String weatherInfo = weather.now.cond.info;
@@ -156,7 +171,7 @@ public class WeatherActivity extends AppCompatActivity {
         weatherLayout.setVisibility(View.VISIBLE);
     }
 
-    private void requestWeather(String weatherId) {
+    public void requestWeather(String weatherId) {
         String weatherUrl = "http://guolin.tech/api/weather?cityid=" + weatherId + "&key=684c9cf9964d4c34961c4facfb512a1b";
         HttpUtil.sendOKHttpRequest(weatherUrl, new Callback() {
             @Override
